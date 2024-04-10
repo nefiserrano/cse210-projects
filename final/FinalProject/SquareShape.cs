@@ -2,20 +2,27 @@ using System;
 
 public class SquareShape : Shape
 {
-    private float _side;
+    private double _side;
 
-    public SquareShape(float area, float perimeter, float side) : base (area, perimeter)
+    public SquareShape(double side)
     {
         _side = side;
     }
 
-    public override float CalculateArea()
+    public override double CalculateArea()
     {
-        return 0;
+        _area = _side * _side;
+        return _area;
     }
 
-    public override float CalculatePerimeter()
+    public override double CalculatePerimeter()
     {
-        return 0;
+        _perimeter = 4 * _side;
+        return _perimeter;
+    }
+
+    public override void DisplayShapeInformation()
+    {
+        Console.WriteLine("A square is a regular quadrilateral, which means that it has four sides of equal length and four equal angles.");
     }
 }

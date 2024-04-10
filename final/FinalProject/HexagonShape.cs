@@ -2,22 +2,29 @@ using System;
 
 public class HexagonShape : Shape
 {
-    private float _side;
-    private float _apothem;
+    private double _side;
+    private double _apothem;
 
-    public HexagonShape(float area, float perimeter, float side, float apothem) : base (area, perimeter)
+    public HexagonShape(double side, double apothem)
     {
         _side = side;
         _apothem = apothem;
     }
 
-    public override float CalculateArea()
+    public override double CalculateArea()
     {
-        return 0;
+        _area = _perimeter * _apothem / 2;
+        return _area;
     }
 
-    public override float CalculatePerimeter()
+    public override double CalculatePerimeter()
     {
-        return 0;
+        _perimeter = 6 * _side;
+        return _perimeter;
+    }
+
+    public override void DisplayShapeInformation()
+    {
+        Console.WriteLine("A hexagon is a six-sided polygon. The apothem of a regular polygon is a line segment from the center to the midpoint of one of its sides.");
     }
 }

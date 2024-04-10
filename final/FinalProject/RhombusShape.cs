@@ -1,25 +1,33 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 public class RhombusShape : Shape
 {
-    private float _diagonal1;
-    private float _diagonal2;
-    private float _side;
+    private double _diagonal1;
+    private double _diagonal2;
+    private double _side;
 
-    public RhombusShape(float area, float perimeter, float diagonal1, float diagonal2, float side) : base (area, perimeter)
+    public RhombusShape(double diagonal1, double diagonal2, double side)
     {
         _diagonal1 = diagonal1;
         _diagonal2 = diagonal2;
         _side = side;
     }
 
-    public override float CalculateArea()
+    public override double CalculateArea()
     {
-        return 0;
+        _area = _diagonal1 * _diagonal2 / 2;
+        return _area;
     }
 
-    public override float CalculatePerimeter()
+    public override double CalculatePerimeter()
     {
-        return 0;
+        _perimeter = _side * 4;
+        return _perimeter;
+    }
+
+    public override void DisplayShapeInformation()
+    {
+        Console.WriteLine("A rhombus is a quadrilateral with both pairs of opposite sides parallel and all sides the same length.");
     }
 }

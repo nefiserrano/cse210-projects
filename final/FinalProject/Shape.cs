@@ -2,21 +2,24 @@ using System;
 
 public abstract class Shape
 {
-    protected float _area;
-    protected float _perimeter;
+    protected double _area;
+    protected double _perimeter;
 
-    public Shape(float area, float perimeter)
+    public Shape()
     {
-        _area = area;
-        _perimeter = perimeter;
+        _area = 0;
+        _perimeter = 0;
     }
 
-    public abstract float CalculateArea();
+    public abstract double CalculateArea();
 
-    public abstract float CalculatePerimeter();
+    public abstract double CalculatePerimeter();
+
+    public abstract void DisplayShapeInformation();
 
     public void DisplayResults()
     {
+        Console.WriteLine("");
         Console.WriteLine($"Area: {_area}, Perimeter: {_perimeter}");
     }
 }

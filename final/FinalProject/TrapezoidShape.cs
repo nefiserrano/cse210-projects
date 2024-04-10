@@ -2,13 +2,13 @@ using System;
 
 public class TrapezoidShape : Shape
 {
-    private float _base1;
-    private float _base2;
-    private float _height;
-    private float _side1;
-    private float _side2;
+    private double _base1;
+    private double _base2;
+    private double _height;
+    private double _side1;
+    private double _side2;
 
-    public TrapezoidShape(float area, float perimeter, float base1, float base2, float height, float side1, float side2) : base (area, perimeter)
+    public TrapezoidShape(double base1, double base2, double height, double side1, double side2)
     {
         _base1 = base1;
         _base2 = base2;
@@ -17,13 +17,20 @@ public class TrapezoidShape : Shape
         _side2 = side2;
     }
 
-    public override float CalculateArea()
+    public override double CalculateArea()
     {
-        return 0;
+        _area = (_base1 + _base2) / 2 * _height;
+        return _area;
     }
 
-    public override float CalculatePerimeter()
+    public override double CalculatePerimeter()
     {
-        return 0;
+        _perimeter = _base1 + _base2 + _side1 + _side2;
+        return _perimeter;
+    }
+
+    public override void DisplayShapeInformation()
+    {
+        Console.WriteLine("A trapezoid is a quadrilateral that has at least one pair of parallel sides. The parallel sides are called the bases.");
     }
 }

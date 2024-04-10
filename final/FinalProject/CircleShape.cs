@@ -2,20 +2,30 @@ using System;
 
 public class CircleShape : Shape
 {
-    private float _radius;
+    private double _radius;
 
-    public CircleShape(float area, float perimeter, float radius) : base (area, perimeter)
+    public CircleShape(double radius)
     {
         _radius = radius;
     }
 
-    public override float CalculateArea()
+    public override double CalculateArea()
     {
-        return 0;
+        double pi = Math.PI;
+        double squaredRadius = Math.Pow(_radius, 2);
+        _area = pi * squaredRadius;
+        return _area;
     }
 
-    public override float CalculatePerimeter()
+    public override double CalculatePerimeter()
     {
-        return 0;
+        double pi = Math.PI;
+        _perimeter = 2 * pi * _radius;
+        return _perimeter;
+    }
+
+    public override void DisplayShapeInformation()
+    {
+        Console.WriteLine("A circle is a shape consisting of all points in a plane that are at a given distance from a given point, the centre.");
     }
 }
